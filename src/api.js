@@ -40,8 +40,8 @@ app.get("/lib.min.js", async function(req, res) {
     .send(response.data);
 });
 
-app.get("/", requestHandler);
-app.post("/", requestHandler);
+app.get("/*", requestHandler);
+app.post("/*", requestHandler);
 
 app.listen(3000, function() {
   console.log("App started");
