@@ -43,18 +43,6 @@ app.get("/lib.min.js", async function(req, res) {
 app.get("/", requestHandler);
 app.post("/", requestHandler);
 
-// // decide
-// app.get("/decide", requestHandler);
-// app.post("/decide", requestHandler);
-
-// // engage
-// app.get("/engage", requestHandler);
-// app.post("/engage", requestHandler);
-
-// // track
-// app.get("/track", requestHandler);
-// app.post("/track", requestHandler);
-
 app.listen(3000, function() {
   console.log("App started");
 });
