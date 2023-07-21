@@ -1,0 +1,21 @@
+{
+  "name": "track_proxy",
+  "version": "1.0.0",
+  "description": "track proxy sample for NodeJS",
+  "main": "app.js",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+    "aws-serverless-express": "^3.4.0",
+    "axios": "^1.4.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^9.1.4"
+  }
+}
