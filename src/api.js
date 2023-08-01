@@ -43,6 +43,18 @@ app.get("/lib.min.js", async function(req, res) {
 app.get("/*", requestHandler);
 app.post("/*", requestHandler);
 
+// // decide
+// app.get("/decide", requestHandler);
+// app.post("/decide", requestHandler);
+
+// // engage
+// app.get("/engage", requestHandler);
+// app.post("/engage", requestHandler);
+
+// // track
+// app.get("/track", requestHandler);
+// app.post("/track", requestHandler);
+
 app.listen(3000, function() {
   console.log("App started");
 });
@@ -57,14 +69,17 @@ async function requestHandler(req, res) {
     : "api.mixpanel.com";
 
   // client Ip
-  let ip =
-    req.headers["http-x-forwarded-for"] ||
-    req.headers["http-x-real-ip"] ||
-    req.headers["x-forwarded-for"];
+  let ipStr =
+    req.headers["http-x-forwarded-for"] ??
+    req.headers["http-x-real-ip"] ??
+    req.headers["x-forwarded-for"] ?? '';
+
+  let ips = ipStr.split(',');
+  let ip = ips && ips.length > 0 ? ips[0] : '';
 
   // headers
   let headers = { ...req.headers };
-  headers["X-REAL-IP"] = ip;
+  headers["X-Real-IP"] = ip;
   headers["host"] = mixpanelHost;
 
   // api call
